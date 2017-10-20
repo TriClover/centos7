@@ -104,7 +104,7 @@
   ],
   "post-processors": [
     {
-      "output": "builds/{{user `box_basename`}}_ver-num_{{.Provider}}.box",
+      "output": "builds/{{user `box_basename`}}_{{user `version`}}_{{.Provider}}.box",
       "type": "vagrant"
     }
   ],
@@ -162,7 +162,7 @@
     "name": "centos-7.3",
     "no_proxy": "{{env `no_proxy`}}",
     "template": "centos-7.3-x86_64",
-    "version": "2.1.TIMESTAMP"
+    "version": "2-0-1"
   }
 }
 
