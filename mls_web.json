@@ -138,10 +138,21 @@
         "scripts/common/virtualbox.sh",
         "scripts/centos/vmware.sh",
         "scripts/common/parallels.sh",
-        "scripts/centos/cleanup.sh",
-        "scripts/common/minimize.sh"
+        "scripts/centos/cleanup.sh"
       ],
       "type": "shell"
+    },
+    {
+      "type": "shell",
+      "inline": [
+        "sudo yum -y install epel-release",
+		"sudo yum -y install ansible"
+      ]
+    },
+    {
+      "type": "ansible-local",
+      "playbook_file": "scripts/common/playbook.yml",
+	  "staging_directory": "/tmp"
     }
   ],
   "variables": {
@@ -153,16 +164,16 @@
     "headless": "true",
     "http_proxy": "{{env `http_proxy`}}",
     "https_proxy": "{{env `https_proxy`}}",
-    "iso_checksum": "c455ee948e872ad2194bdddd39045b83634e8613249182b88f549bb2319d97eb",
+    "iso_checksum": "ec7500d4b006702af6af023b1f8f1b890b6c7ee54400bb98cef968b883cd6546",
     "iso_checksum_type": "sha256",
-    "ks_path": "centos-7.3/ks.cfg",
+    "ks_path": "centos-7.4/ks.cfg",
     "memory": "2048",
     "metadata": "floppy/dummy_metadata.json",
-    "iso_url": "http://mls-centos01/OS_Installers/CentOS-7-x86_64-DVD-1611.iso",
-    "name": "centos-7.3",
+    "iso_url": "http://mls-centos01/OS_Installers/CentOS-7-x86_64-DVD-1708.iso",
+    "name": "centos-7.4",
     "no_proxy": "{{env `no_proxy`}}",
-    "template": "centos-7.3-x86_64",
-    "version": "2-0-1"
+    "template": "centos-7.4-x86_64",
+    "version": "2-1-0"
   }
 }
 

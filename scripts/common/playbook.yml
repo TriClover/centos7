@@ -1,0 +1,12 @@
+---
+- name: mls_web playbook
+  hosts: all localhost
+  tasks:
+
+  # disable selinux asap
+
+  - name: install libselinux-python (for ansible selinux module)
+    yum: name=libselinux-python state=latest
+
+  - name: disable selinux (for copy where dest is in a linked folder)
+    selinux: state=disabled
